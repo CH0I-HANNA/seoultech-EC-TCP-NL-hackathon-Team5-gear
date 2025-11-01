@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,13 +19,17 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
+
 
     @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(name = "password_hash")
     private String password;
 
     @Column(name = "profile_image_url")
@@ -39,12 +43,12 @@ public class User {
 //    private List<RecentlyViewed> recentlyViewed = new ArrayList<>();
 
 
-    public User(String username, String email, String password, String name, String profileImageUrl, LocalDateTime createdAt, List<Wishlist> wishlist) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.profileImageUrl = profileImageUrl;
-        this.createdAt = createdAt;
-        this.wishlist = wishlist;
-    }
+//    public User(String username, String email, String password, String profileImageUrl, LocalDateTime createdAt, List<Wishlist> wishlist) {
+//        this.username = username;
+//        this.email = email;
+//        this.password = password;
+//        this.profileImageUrl = profileImageUrl;
+//        this.createdAt = createdAt;
+//        this.wishlist = wishlist;
+//    }
 }
